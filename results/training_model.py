@@ -1,10 +1,3 @@
-#!/usr/bin/env python3
-"""Train a news topic classifier and save it + the learning curves plot.
-
-Usage:
-    python results/training_model.py
-"""
-
 import os
 import pickle
 

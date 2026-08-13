@@ -9,7 +9,7 @@ scandal detection).
 ```
 .
 ├── data
-│   ├── articles/                articles stored by the scraper (one file per day)
+│   ├── articles.json            articles stored by the scraper
 │   ├── bbc_news_train.csv       labelled dataset used to train the topic model
 │   └── bbc_news_tests.csv       labelled dataset used to evaluate the topic model
 ├── scraper_news.py              the news scraper
@@ -31,7 +31,7 @@ source .venv/bin/activate
 pip install -r requirements.txt
 
 # models used by the NLP engine
-python -m spacy download en_core_web_sm
+python -m spacy download en_core_web_md
 python -c "import nltk; nltk.download(['vader_lexicon', 'stopwords'])"
 ```
 
@@ -83,7 +83,7 @@ The article <headline> has a negative sentiment
 
 ---------- Scandal detection ----------
 Computing embeddings and distance ...
-Scandal distance: 0.42
+Environmental scandal detected for Thames Water (distance 0.42)
 ```
 
 ## How each NLP step works
@@ -139,7 +139,7 @@ stored and mapped to `positive`, `negative` or `neutral`.
 | Headline          | str         |
 | Body              | str         |
 | Org               | list of str |
-| Topics            | str         |
+| Topics            | list of str |
 | Sentiment         | float       |
 | Scandal_distance  | float       |
 | Top_10            | bool        |
